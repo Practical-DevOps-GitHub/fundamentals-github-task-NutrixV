@@ -10,11 +10,7 @@ jobs:
     steps:
       - name: Notify Discord
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '{"content": "A new PR has been created!"}' ${{ secrets.DISCORD_WEBHOOK }}
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-      - name: Use PAT for Authentication
-        run: echo "Using PAT for secure access."
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"content": "A new PR has been created!"}' \
+          ${{ secrets.DISCORD_WEBHOOK }}
+
